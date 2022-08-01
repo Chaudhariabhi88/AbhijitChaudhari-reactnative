@@ -71,7 +71,8 @@ export default function Home(props) {
     ApiManager.getCategories().then((response) => {
       if (response != null) {
         const categoriesData = JSON.parse(response);
-        setCategories(categoriesData)
+        console.log('categories in the homepage are.. ',categoriesData)
+        setCategories(categoriesData.categories)
       }
     });
   }
@@ -83,7 +84,7 @@ export default function Home(props) {
     ).then((response) => {
       if (response != null) {
         const productsData = JSON.parse(response);
-        setProducts(productsData)
+        setProducts(productsData.products)
       }
     });
   }

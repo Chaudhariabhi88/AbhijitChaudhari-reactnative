@@ -5,6 +5,9 @@ export function getCategories() {
   var config = {
     method: 'get',
     url: GLOBAL.BASE_URL + GLOBAL.GET_REQUEST.getCategories,
+    headers: {
+      'Authorization': 'Bearer ' + GLOBAL.token
+    }
   };
 
   return new Promise((resolve, reject) => {
@@ -20,19 +23,25 @@ export function getCategories() {
 }
 
 export function getProducts(url, data) {
-  console.log('data in api manager.. ',data)
+  console.log('data in api manager.. ', data)
   var config
-  if(data == null){
+  if (data == null) {
     config = {
-    method: 'get',
-    url: url,
-  };
-  }else{
+      method: 'get',
+      url: url,
+      headers: {
+        'Authorization': 'Bearer ' + GLOBAL.token
+      }
+    };
+  } else {
     config = {
       method: 'post',
       url: url,
-      data : data
-  };
+      headers: {
+        'Authorization': 'Bearer ' + GLOBAL.token
+      },
+      data: data
+    };
   }
 
   return new Promise((resolve, reject) => {
